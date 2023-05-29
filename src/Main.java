@@ -10,6 +10,9 @@ public class Main {
         window.setResizable(false);
         window.setLocationRelativeTo(null);
 
+        window.add(new GamePanel());
+        window.pack();
+
         window.setVisible(true);
 
     }
