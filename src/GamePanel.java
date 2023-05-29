@@ -22,6 +22,11 @@ public class GamePanel extends JPanel implements Runnable {
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
+    //Players default values
+    int playerX = 100;
+    int playerY = 100;
+    int playerSpeed = 4;
+
     //FPS
     int FPS = 60;
 
@@ -37,11 +42,23 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
+    public void startGameThread() {
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+
     public void update() {
 
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D)g;
+
+        g2.setColor(Color.WHITE);
+        g2.fillRect(100,100, tileSize, tileSize);
+
+        g2.dispose();
     }
 }
